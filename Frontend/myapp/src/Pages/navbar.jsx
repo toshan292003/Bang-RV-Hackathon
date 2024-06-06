@@ -1,6 +1,22 @@
-import React from "react";
+import React,{ useState , useEffect } from "react";
 import "./navbar.css";
 export default function Navbar(){
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const handleScroll = () => {
+        const position = window.scrollY;
+        setScrollPosition(position);
+        console.log(scrollPosition);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
     return(
         <>
             <div className="navbox">
@@ -22,7 +38,7 @@ export default function Navbar(){
                             <a href="/about">About Us</a>
                         </li>
                         <li>
-                            <a href="/signin">Login</a>
+                            <a href="/signin">Login/Sign Up</a>
                         </li>
                     </ul>
                 </div>

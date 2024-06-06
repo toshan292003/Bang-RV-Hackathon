@@ -1,55 +1,47 @@
-import React ,{useState} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./home.css";
-import Button from "../Components/Button";
+import Button from "../Components/button";
+import Navbar from "./navbar";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Home () {
-    const [locData, setlocData] = useState({
-        id:'',
-        latitude: '',
-        longitude: ''
-      });
 
-    const sendLocation = async (e)=>{
-        console.log(locData);
-        let ID = "LOC" + Math. floor(Math. random() * 99);
-        e.preventDefault();
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(
-                (position)=>{
-                    setlocData({
-                        id:ID,
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude,
-                    })
-                    console.log("Lattitude = "+ position.coords.latitude);
-                    console.log("Longitude = "+ position.coords.longitude);
-                },
-                (err)=>{
-                    console.log(err.message);
-                }
-                )
-            try {
-                console.log(locData);
-                const response = await axios.post('http://localhost:3001/app/location', locData);
-                console.log(response.data);
-                setlocData({
-                  latitude: '',
-                  longitude: ''
-                });
-                toast.success("Data Inserted Successfully!");
-            } 
-            catch (error) {
-                console.error('Error submitting data:', error);
-                toast.error("This Entry Already Exists!");
-            }
-        }
+import "./locomotive.css";
+import LocomotiveScroll from 'locomotive-scroll';
+
+
+export default function Home () {
+
+    const scrollRef = useRef(null);
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const handleScroll = () => {
+        const position = window.scrollY;
+        setScrollPosition(position);
     }
+    
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        console.log(scrollPosition);
+        const scrollInstance = new LocomotiveScroll({
+            el: scrollRef.current,
+            smooth: true,
+            multiplier: 0.6
+        });
+        return () => {
+            scrollInstance.destroy();
+        };
+    }, []);
+
+
     return (
         <>
+            <Navbar></Navbar>
+            <div className="home" data-scroll-container ref={scrollRef}>
+                
             <section className="home-1">
+                <img src="https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-scroll data-scroll-speed="-3"/>
                 <div>
                     <h1>
                         ORDER YOUR RESCUE TEAM WITH JUST ONE CLICK
@@ -57,9 +49,7 @@ export default function Home () {
                     <p>
                     Experience peace of mind with our swift ambulance booking service. Whether it's for you or a loved one, trust us for reliable emergency response, 24/7. Your safety is our priority. Book now.
                     </p>
-                    <button onClick={sendLocation}>ORDER RESCUE TEAM</button>
-                </div>
-                <div className="home-hero-img">
+                    <Button title="title"></Button>
                 </div>
             </section>
             <section className="home-2">
@@ -99,13 +89,15 @@ export default function Home () {
                         <p>We are a couple of students from Sahyadri College of Engineering and Management, Mangaluru, currently in 5th Semister, 3rd year Engineering who are passionate in Building Websites.
                         We built this website solely to test our Frontend and Basic Backend development Skills.
                         We have used frameworks like React.Js, Styling Sheets like Tailwind for Frontend and Node.Js , Express.Js, MySQL for Backend.</p>
-                        <Button title = "ABOUT US" link = "/about"></Button>
+                        <Button title = "ABOUT US"></Button>
                     </section>
                     <section>
                         <img src="https://img.freepik.com/free-vector/gradient-devops-illustration_23-2149373211.jpg?w=1380&t=st=1708356216~exp=1708356816~hmac=1ea948c204eec4e38695c4437d119021ad6897e2c6f42c1bdfc81dc7776e37d0" alt="" />
                     </section>
                 </div>
             </section>
+
+            </div>
         </>
     )
 };

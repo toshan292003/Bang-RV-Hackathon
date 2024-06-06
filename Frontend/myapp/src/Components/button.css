@@ -1,0 +1,22 @@
+.button button{
+    background-color: var(--button-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    margin: 20px 0px;
+    z-index: 10;
+    width: 100%;
+    border: 3px solid transparent;
+    transition: all .5s ease;
+}
+
+.button button:hover {
+    border-bottom: 3px solid white;
+    background-color: #151515;
+    cursor: pointer;
+}
