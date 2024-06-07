@@ -1,12 +1,15 @@
-import React,{ useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Components/button";
 import "./signup.css";
 import { useNavigate } from 'react-router-dom';
 
-export default function Signup(){
+export default function Signup() {
 
     const navigate = useNavigate();
-    const [person,setPerson] = useState("Student");
+    const [person, setPerson] = useState("Student");
+
+    const [warning,setwarn] = useState();
+
     const [formData, setFormData] = useState({
         person: '',
         name: '',
@@ -20,14 +23,21 @@ export default function Signup(){
     //     console.log(person);
     // }
     const handlePerson = (event) => {
-        setFormData({ ...formData, person: event.target.textContent });
-        
+        const role = event.target.textContent;
+        setFormData({ ...formData, person: role });
     };
-    const submit = ()=>{
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+        console.log(formData);
+    };
+
+    const submit = () => {
         console.log("Form submitted.");
         navigate('/');
     }
-    return(
+    return (
         <>
             <div className="signbox">
                 <section>
@@ -42,15 +52,14 @@ export default function Signup(){
                             <button onClick={handlePerson}>Student</button>
                         </p>
                     </div>
-                    <form action="" >
-                        <input type="text" placeholder="Name"/>
-                        <input type="email" placeholder="Email"/>
-                        <input type="text" placeholder="USN"/>
-                        <input type="text" placeholder="Password"/>
-                        <input type="text" placeholder="Confirm Password"/>
-                        <a href="/">
-                            <button onClick={submit} >SIGN UP</button>
-                        </a>
+                    <form onSubmit={submit}>
+                        <input type="text" name="name" placeholder="Name" onChange={handleChange} value={formData.name} required />
+                        <input type="email" name="email" placeholder="Email" onChange={handleChange} value={formData.email} required />
+                        <input type="text" name="usn" placeholder="USN" onChange={handleChange} value={formData.usn} required />
+                        <input type="password" name="password" placeholder="Password" onChange={handleChange} value={formData.password} required />
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} value={formData.confirmPassword} required />
+                        <span>{warning}</span>
+                        <button type="submit">SIGN UP</button>
                     </form>
 
                     <p>
