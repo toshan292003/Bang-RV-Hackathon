@@ -33,8 +33,11 @@ export default function Signup() {
         console.log(formData);
     };
 
-    const submit = () => {
+    const submit = (event) => {
+        event.preventDefault();
         console.log("Form submitted.");
+        setwarn("");
+
         if(formData.password != formData.confirmPassword){
             setwarn("Passwords do not match");
         }
@@ -57,14 +60,14 @@ export default function Signup() {
                             <button onClick={handlePerson}>Student</button>
                         </p>
                     </div>
-                    <form onSubmit={submit}>
+                    <form>
                         <input type="text" name="name" placeholder="Name" onChange={handleChange} value={formData.name} required />
                         <input type="email" name="email" placeholder="Email" onChange={handleChange} value={formData.email} required />
                         <input type="text" name="usn" placeholder="USN" onChange={handleChange} value={formData.usn} required />
                         <input type="password" name="password" placeholder="Password" onChange={handleChange} value={formData.password} required />
                         <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} value={formData.confirmPassword} required />
                         <span>{warning}</span>
-                        <button type="submit">SIGN UP</button>
+                        <button  onClick={submit}>SIGN UP</button>
                     </form>
 
                     <p>
