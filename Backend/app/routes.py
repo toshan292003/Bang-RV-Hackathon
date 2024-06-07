@@ -28,17 +28,17 @@ def register():
         return jsonify({'message': 'User registered successfully'})
     except Exception as e:
         print(f"Error: {e}")
-        return jsonify({'message': 'Internal Server Error'}), 500
+        return jsonify({'message': 'User Already Exists'}), 500
 
 
 
-@main.route('/login', methods=['POST'])
+@main.route('/api/signin', methods=['POST'])
 def login():
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
     if user and check_password_hash(user.password, data['password']):
         access_token = create_access_token(identity=user.id)
-        return jsonify({'access_token': access_token})
+        return jsonify({'message': 'Login Successful'})
     return jsonify({'message': 'Invalid credentials'}), 401
 
 @main.route('/add_question', methods=['POST'])

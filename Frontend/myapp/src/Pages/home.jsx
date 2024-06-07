@@ -13,7 +13,6 @@ import IMGC from "../Images/ccccccccccccccccccccccccc.png";
 import "./locomotive.css";
 import LocomotiveScroll from 'locomotive-scroll';
 
-
 export default function HomeT () {
 
     const scrollRef = useRef(null);

@@ -6,22 +6,52 @@ import { useNavigate, Link } from 'react-router-dom';
 export default function Signin() {
 
     const navigate = useNavigate();
-    const [person, setPerson] = useState("Student");
     const [route, setRoute] = useState("/home/teacher");
 
+    const [warning, setwarn] = useState("");
+
+    const [formData, setFormData] = useState({
+        person: '',
+        username: '',
+        password: ''
+    });
     const handlePerson = (event) => {
-        const personName = event.target.textContent;
-        setPerson(personName);
-        const newRoute = "/home/" + personName.toLowerCase();
-        setRoute(newRoute);
-        console.log(personName);
-        console.log(newRoute);
+        const role = event.target.textContent;
+        setFormData({ ...formData, person: role });
+        setRoute("/home/" + role.toLowerCase());
+        console.log(route);
     };
 
-    const submit = () => {
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+        console.log(formData);
+    };
+
+    const submit = async (event) => {
+        event.preventDefault();
         console.log("Form submitted.");
-        navigate(`/home/{person}`);
-    }
+
+        setwarn("");
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit form data');
+            }
+            navigate(route);
+        } catch (error) {
+            console.error('Error submitting form data:', error);
+        }
+
+    };
 
     return (
         <>
@@ -39,8 +69,9 @@ export default function Signin() {
                         </p>
                     </div>
                     <form action="" >
-                        <input type="email" placeholder="Email" />
-                        <input type="text" placeholder="Password" />
+                        <input type="text" name="username" placeholder="Name" onChange={handleChange} value={formData.username} required />
+                        <input type="password" name="password" placeholder="Password" onChange={handleChange} value={formData.password} required />
+                        <span>{warning}</span>
                         <Link to={route.toString()}>
                             <button onClick={submit}>LOGIN</button>
                         </Link>
