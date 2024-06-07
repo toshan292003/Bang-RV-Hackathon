@@ -20,6 +20,9 @@ export default function Signin(){
                 </section>
                 <section>
                     <h1>Sign In</h1>
+                    <div>
+                        
+                    </div>
                     <form action="" >
                         <input type="email" placeholder="Email"/>
                         <input type="text" placeholder="Password"/>
