@@ -1,23 +1,27 @@
-import React,{ useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
-export default function Navbar(props){
+export default function Navbar(props) {
 
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const handleScroll = () => {
-        const position = window.scrollY;
-        setScrollPosition(position);
-        console.log(scrollPosition);
+        console.log(window.scrollY);
+        console.log('Scrolling...');
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
+        const listener = () => {
+            handleScroll();
         };
-      }, []);
 
-    return(
+        window.addEventListener('scroll', listener);
+
+        // Cleanup function to remove the event listener
+        return () => {
+            window.removeEventListener('scroll', listener);
+        };
+    }, []);
+    return (
         <>
             <div className="navbox">
                 <div className="navitems">

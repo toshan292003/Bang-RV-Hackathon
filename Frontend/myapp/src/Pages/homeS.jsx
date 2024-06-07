@@ -51,7 +51,7 @@ export default function HomeS() {
                         <p>
                             Educaite offers a secure, user-friendly online examination platform where students can take tests from anywhere. With automated grading, real-time feedback, and detailed performance analytics, Educaite saves educators' time and provides students with instant insights into their progress, creating a more dynamic and efficient learning experience.
                         </p>
-                        <Button title="MANAGE STUDENT DATABASE"></Button>
+                        <Button title="CHECK FOR UNATTEMPTED EXAMS"></Button>
                     </div>
                 </section>
                 <section className="home-2">
@@ -79,7 +79,7 @@ export default function HomeS() {
                 </section>
 
                 <section className="home-3">
-                    <img src="https://images.pexels.com/photos/1708912/pexels-photo-1708912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" data-scroll data-scroll-speed="3" />
+                    <img src="https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" data-scroll data-scroll-speed="3" />
                     <span></span>
                     {/* <section>
                     <img src={IMGA} alt="" data-scroll data-scroll-speed="1"/>
@@ -90,9 +90,9 @@ export default function HomeS() {
                 <section>
                     <img src={IMGC} alt="" data-scroll data-scroll-speed="10"/>
                 </section> */}
-                    <h1>How Educaite Empowers Teachers</h1>
+                    <h1>How Educaite Empowers Students</h1>
                     <div>
-                        <p>When you need urgent medical assistance, our streamlined process ensures quick and efficient service. First, select the type of ambulance service you require, whether it's emergency, non-emergency, or specialty care. Next, provide essential details such as the pickup location and any specific medical needs. Our dispatch team will swiftly process your request and deploy the nearest available ambulance equipped to handle your situation. Once confirmed, our trained professionals will arrive promptly to provide the necessary care and transportation to your desired destination. Rest assured, our seamless process prioritizes your well-being every step of the way.</p>
+                        <p>Educaite's online examination platform revolutionizes students' learning experiences by offering convenience, efficiency, and personalized feedback. With the ability to take exams from anywhere, students can reduce stress and accommodate their individual schedules. Instant grading and feedback help them identify strengths and weaknesses swiftly, while detailed performance analytics provide valuable insights for targeted improvement, ultimately fostering a more engaged, empowered, and successful learning journey.</p>
                     </div>
                 </section>
                 <section className="home-4">
