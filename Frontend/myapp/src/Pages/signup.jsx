@@ -38,11 +38,13 @@ export default function Signup() {
     const submit = (event) => {
         event.preventDefault();
         console.log("Form submitted.");
-        navigate({route});
-        setwarn("");
         
         if(formData.password != formData.confirmPassword){
             setwarn("Passwords do not match");
+        }
+        else {
+            navigate(route); // Navigate to the specified route
+            setWarn(""); // Clear any previous warning
         }
     }
     return (
