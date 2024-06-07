@@ -6,12 +6,15 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import IMGA from "../Images/aaaaaaaaaaaaaaaaaaa.png";
+import IMGB from "../Images/bbbbbbbbbbbbbbbb.png";
+import IMGC from "../Images/ccccccccccccccccccccccccc.png";
 
 import "./locomotive.css";
 import LocomotiveScroll from 'locomotive-scroll';
 
 
-export default function Home () {
+export default function HomeT () {
 
     const scrollRef = useRef(null);
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -20,7 +23,7 @@ export default function Home () {
         const position = window.scrollY;
         setScrollPosition(position);
     }
-    
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         console.log(scrollPosition);
@@ -37,19 +40,19 @@ export default function Home () {
 
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar person="Teacher"></Navbar>
             <div className="home" data-scroll-container ref={scrollRef}>
                 
             <section className="home-1">
                 <img src="https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-scroll data-scroll-speed="-3"/>
                 <div>
                     <h1>
-                        ORDER YOUR RESCUE TEAM WITH JUST ONE CLICK
+                        An online examination and grading system for students.
                     </h1>
                     <p>
-                    Experience peace of mind with our swift ambulance booking service. Whether it's for you or a loved one, trust us for reliable emergency response, 24/7. Your safety is our priority. Book now.
+                        An Online Examination and Grading System for Students streamlines assessments by enabling remote exam-taking, electronic submissions, and automated grading. This digital platform enhances accessibility and academic integrity, offering educators efficient evaluation tools while providing students with a convenient and secure means of assessment.
                     </p>
-                    <Button title="title"></Button>
+                    <Button title="MANAGE STUDENT DATABASE"></Button>
                 </div>
             </section>
             <section className="home-2">
@@ -77,6 +80,15 @@ export default function Home () {
             </section>
 
             <section className="home-3">
+                <section>
+                    <img src={IMGA} alt="" data-scroll data-scroll-speed="1"/>
+                </section>
+                <section>
+                    <img src={IMGB} alt="" data-scroll data-scroll-speed="4"/>
+                </section>
+                <section>
+                    <img src={IMGC} alt="" data-scroll data-scroll-speed="10"/>
+                </section>
                 <h1>what makes it work?</h1>
                 <div>
                     <p>When you need urgent medical assistance, our streamlined process ensures quick and efficient service. First, select the type of ambulance service you require, whether it's emergency, non-emergency, or specialty care. Next, provide essential details such as the pickup location and any specific medical needs. Our dispatch team will swiftly process your request and deploy the nearest available ambulance equipped to handle your situation. Once confirmed, our trained professionals will arrive promptly to provide the necessary care and transportation to your desired destination. Rest assured, our seamless process prioritizes your well-being every step of the way.</p>
@@ -96,7 +108,6 @@ export default function Home () {
                     </section>
                 </div>
             </section>
-
             </div>
         </>
     )

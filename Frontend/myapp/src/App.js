@@ -1,6 +1,5 @@
 import './App.css';
-import Navbar from './Pages/navbar';
-import Home from './Pages/home';
+import HomeT from './Pages/home';
 import Signup from './Pages/signup';
 import Signin from './Pages/singin';
 import {BrowserRouter , Routes , Route} from 'react-router-dom';
@@ -12,9 +11,9 @@ function App() {
       <ToastContainer/>
       <BrowserRouter>
         <Routes>
-          <Route path = "/" element = {<Home/>}/>
+          <Route path = "/" element = {<Signin/>}/>
+          <Route path = "/home/teacher" element = {<HomeT/>}/>
           <Route path = "/signup" element = {<Signup/>}/>
-          <Route path = "/signin" element = {<Signin/>}/>
         </Routes>
       </BrowserRouter>
     </>

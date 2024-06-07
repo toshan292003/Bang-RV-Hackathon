@@ -54,9 +54,14 @@ body{
     margin-right: 10%;
 }
 
+.home-1 h1{
+    text-transform: uppercase;
+}
+
 .home-1 div p,
 .home-2 div p{
-    font-weight: 400;
+    font-weight: 300;
+    opacity: 75%;
     text-align: justify;
     font-size: 1rem;
 }
@@ -104,6 +109,7 @@ body{
 .home-3{
     background: url('https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-repeat: no-repeat;
+    position: relative;
     background-size: cover;
     background-position: center;
     padding: 0% 20%;
@@ -114,6 +120,7 @@ body{
     justify-content: center;
     font-family: "Lexend", sans-serif;
     color: white;
+    overflow: hidden;
 }
 
 .home-3::before{
@@ -124,6 +131,30 @@ body{
     z-index: 1;
     position: absolute;
     opacity: 90%;
+}
+
+.home-3 img{
+    position: absolute;
+    height: 150px;
+    z-index: 100;
+    filter: brightness(50%);
+}
+
+.home-3 section:nth-child(3) img{
+    top: 500px;
+    left: -100px;
+    height: 300px;
+}
+.home-3 section:nth-child(1) img{
+    bottom: 500px;
+    left: -100px;
+    height: 400px;
+    filter: blur(5px);
+}
+.home-3 section:nth-child(2) img{
+    top: 500px;
+    left: -100px;
+    height: 300px;
 }
 
 .home-3 h1{

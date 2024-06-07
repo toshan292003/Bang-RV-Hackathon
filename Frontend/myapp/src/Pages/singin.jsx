@@ -1,18 +1,29 @@
-import React,{ useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Components/button";
 import "./signup.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
-export default function Signin(){
-    
+export default function Signin() {
+
     const navigate = useNavigate();
+    const [person, setPerson] = useState("Student");
+    const [route, setRoute] = useState("/home/teacher");
 
-    const submit = ()=>{
+    const handlePerson = (event) => {
+        const personName = event.target.textContent;
+        setPerson(personName);
+        const newRoute = "/home/" + personName.toLowerCase();
+        setRoute(newRoute);
+        console.log(personName);
+        console.log(newRoute);
+    };
+
+    const submit = () => {
         console.log("Form submitted.");
-        navigate('/');
+        navigate(`/home/{person}`);
     }
 
-    return(
+    return (
         <>
             <div className="signbox">
                 <section>
@@ -23,16 +34,16 @@ export default function Signin(){
                     <div>
                         <span>Login as ?</span>
                         <p>
-                            <button>Teacher</button>
-                            <button>Student</button>
+                            <button onClick={handlePerson}>Teacher</button>
+                            <button onClick={handlePerson}>Student</button>
                         </p>
                     </div>
                     <form action="" >
-                        <input type="email" placeholder="Email"/>
-                        <input type="text" placeholder="Password"/>
-                        <a href="/">
-                            <button onClick={submit} >SIGN UP</button>
-                        </a>
+                        <input type="email" placeholder="Email" />
+                        <input type="text" placeholder="Password" />
+                        <Link to={route.toString()}>
+                            <button onClick={submit}>LOGIN</button>
+                        </Link>
                     </form>
 
                     <p>

@@ -1,10 +1,8 @@
 import React,{ useState , useEffect } from "react";
 import "./navbar.css";
-export default function Navbar(){
+export default function Navbar(props){
 
     const [scrollPosition, setScrollPosition] = useState(0);
-
-    const [person,setPerson] = useState("Teacher");
 
     const handleScroll = () => {
         const position = window.scrollY;
@@ -24,7 +22,7 @@ export default function Navbar(){
             <div className="navbox">
                 <div className="navitems">
                     <span>Educaite</span>
-                    <p>{person} Login</p>
+                    <p>{props.person} Login</p>
                 </div>
                 <div className="navitems">
                     <ul>
@@ -41,7 +39,7 @@ export default function Navbar(){
                             <a href="/about">About Us</a>
                         </li>
                         <li>
-                            <a href="/signin">Login/Sign Up</a>
+                            <a href="/">Login/Sign Up</a>
                         </li>
                     </ul>
                 </div>
