@@ -42,7 +42,7 @@ export default function HomeT () {
         <>
             <Navbar person="Teacher"></Navbar>
             <div className="home" data-scroll-container ref={scrollRef}>
-                
+            
             <section className="home-1">
                 <img src="https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-scroll data-scroll-speed="-3"/>
                 <div>
