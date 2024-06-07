@@ -44,7 +44,7 @@ export default function Signup() {
         }
         else {
             navigate(route); // Navigate to the specified route
-            setWarn(""); // Clear any previous warning
+            setwarn(""); // Clear any previous warning
         }
     }
     return (
