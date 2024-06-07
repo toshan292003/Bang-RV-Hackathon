@@ -79,7 +79,8 @@ export default function HomeT () {
             </section>
 
             <section className="home-3">
-                <section>
+                <img src="https://images.pexels.com/photos/1708912/pexels-photo-1708912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                {/* <section>
                     <img src={IMGA} alt="" data-scroll data-scroll-speed="1"/>
                 </section>
                 <section>
@@ -87,8 +88,8 @@ export default function HomeT () {
                 </section>
                 <section>
                     <img src={IMGC} alt="" data-scroll data-scroll-speed="10"/>
-                </section>
-                <h1>what makes it work?</h1>
+                </section> */}
+                <h1>How Educaite Empowers Teachers</h1>
                 <div>
                     <p>When you need urgent medical assistance, our streamlined process ensures quick and efficient service. First, select the type of ambulance service you require, whether it's emergency, non-emergency, or specialty care. Next, provide essential details such as the pickup location and any specific medical needs. Our dispatch team will swiftly process your request and deploy the nearest available ambulance equipped to handle your situation. Once confirmed, our trained professionals will arrive promptly to provide the necessary care and transportation to your desired destination. Rest assured, our seamless process prioritizes your well-being every step of the way.</p>
                 </div>
