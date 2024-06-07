@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Signup() {
 
     const navigate = useNavigate();
-    const [person, setPerson] = useState("Student");
+    const [route,setRoute] = useState("");
 
     const [warning,setwarn] = useState("");
 
@@ -25,6 +25,8 @@ export default function Signup() {
     const handlePerson = (event) => {
         const role = event.target.textContent;
         setFormData({ ...formData, person: role });
+        setRoute("/home/"+role.toLowerCase());
+        console.log(route);
     };
 
     const handleChange = (event) => {
@@ -37,12 +39,10 @@ export default function Signup() {
         event.preventDefault();
         console.log("Form submitted.");
         setwarn("");
+        navigate(``);
 
         if(formData.password != formData.confirmPassword){
             setwarn("Passwords do not match");
-        }
-        else{
-            navigate('/signup');
         }
     }
     return (
