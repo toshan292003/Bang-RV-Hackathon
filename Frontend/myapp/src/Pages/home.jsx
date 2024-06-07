@@ -29,7 +29,7 @@ export default function HomeT () {
         const scrollInstance = new LocomotiveScroll({
             el: scrollRef.current,
             smooth: true,
-            multiplier: 0.6
+            multiplier: 0.5
         });
         return () => {
             scrollInstance.destroy();
@@ -79,7 +79,8 @@ export default function HomeT () {
             </section>
 
             <section className="home-3">
-                <img src="https://images.pexels.com/photos/1708912/pexels-photo-1708912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                <img src="https://images.pexels.com/photos/1708912/pexels-photo-1708912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" data-scroll data-scroll-speed="3"/>
+                <span></span>
                 {/* <section>
                     <img src={IMGA} alt="" data-scroll data-scroll-speed="1"/>
                 </section>
