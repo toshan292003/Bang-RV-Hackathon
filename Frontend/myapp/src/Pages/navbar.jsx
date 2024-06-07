@@ -4,6 +4,8 @@ export default function Navbar(){
 
     const [scrollPosition, setScrollPosition] = useState(0);
 
+    const [person,setPerson] = useState("Teacher");
+
     const handleScroll = () => {
         const position = window.scrollY;
         setScrollPosition(position);
@@ -22,6 +24,7 @@ export default function Navbar(){
             <div className="navbox">
                 <div className="navitems">
                     <span>Educaite</span>
+                    <p>{person} Login</p>
                 </div>
                 <div className="navitems">
                     <ul>
