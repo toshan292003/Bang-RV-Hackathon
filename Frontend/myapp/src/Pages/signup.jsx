@@ -38,9 +38,9 @@ export default function Signup() {
     const submit = (event) => {
         event.preventDefault();
         console.log("Form submitted.");
+        navigate({route});
         setwarn("");
-        navigate(``);
-
+        
         if(formData.password != formData.confirmPassword){
             setwarn("Passwords do not match");
         }
