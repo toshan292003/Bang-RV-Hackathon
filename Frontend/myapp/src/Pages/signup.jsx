@@ -7,12 +7,22 @@ export default function Signup(){
 
     const navigate = useNavigate();
     const [person,setPerson] = useState("Student");
-
-    const handlePerson = (event)=>{
-        setPerson(event.target.textContent);
-        console.log(person);
-    }
-
+    const [formData, setFormData] = useState({
+        person: '',
+        name: '',
+        email: '',
+        usn: '',
+        password: '',
+        confirmPassword: ''
+    });
+    // const handlePerson = (event)=>{
+    //     setPerson(event.target.textContent);
+    //     console.log(person);
+    // }
+    const handlePerson = (event) => {
+        setFormData({ ...formData, person: event.target.textContent });
+        
+    };
     const submit = ()=>{
         console.log("Form submitted.");
         navigate('/');
@@ -45,7 +55,7 @@ export default function Signup(){
 
                     <p>
                         Already have an account?
-                        <a href="/signin">Sign In</a>
+                        <a href="/">Sign In</a>
                     </p>
                 </section>
             </div>
