@@ -35,18 +35,34 @@ export default function Signup() {
         console.log(formData);
     };
 
-    const submit = (event) => {
+    const submit = async (event) => {
         event.preventDefault();
         console.log("Form submitted.");
-        
-        if(formData.password != formData.confirmPassword){
+    
+        if (formData.password !== formData.confirmPassword) {
             setwarn("Passwords do not match");
         }
         else {
-            navigate(route); // Navigate to the specified route
-            setwarn(""); // Clear any previous warning
+            setwarn("");
+    
+            try {
+                const response = await fetch('/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Failed to submit form data');
+                }
+                navigate(route);
+            } catch (error) {
+                console.error('Error submitting form data:', error);
+            }
         }
-    }
+    };
     return (
         <>
             <div className="signbox">
