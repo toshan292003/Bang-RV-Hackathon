@@ -8,7 +8,7 @@ from .utils import grade_answer
 
 main = Blueprint('main', __name__)
 
-@main.route('/register', methods=['POST'])
+@main.route('/api/signup', methods=['POST'])
 def register():
     try:
         print("Attempting to register a user...")
@@ -19,7 +19,6 @@ def register():
             return jsonify({'message': 'No input data provided'}), 400
 
         hashed_password = generate_password_hash(data['password'])
-        print("Password hashed.")
 
         new_user = User(username=data['username'], password=hashed_password, is_lecturer=data.get('is_lecturer', False))
         

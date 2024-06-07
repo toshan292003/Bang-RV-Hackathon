@@ -12,7 +12,7 @@ export default function Signup() {
 
     const [formData, setFormData] = useState({
         person: '',
-        name: '',
+        username: '',
         email: '',
         usn: '',
         password: '',
@@ -46,7 +46,7 @@ export default function Signup() {
             setwarn("");
     
             try {
-                const response = await fetch('/api/signup', {
+                const response = await fetch('http://127.0.0.1:5000/api/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export default function Signup() {
                         </p>
                     </div>
                     <form>
-                        <input type="text" name="name" placeholder="Name" onChange={handleChange} value={formData.name} required />
+                        <input type="text" name="username" placeholder="Name" onChange={handleChange} value={formData.username} required />
                         <input type="email" name="email" placeholder="Email" onChange={handleChange} value={formData.email} required />
                         <input type="text" name="usn" placeholder="USN" onChange={handleChange} value={formData.usn} required />
                         <input type="password" name="password" placeholder="Password" onChange={handleChange} value={formData.password} required />
