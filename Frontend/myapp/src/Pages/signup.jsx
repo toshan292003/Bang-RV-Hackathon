@@ -8,7 +8,7 @@ export default function Signup() {
     const navigate = useNavigate();
     const [person, setPerson] = useState("Student");
 
-    const [warning,setwarn] = useState();
+    const [warning,setwarn] = useState("");
 
     const [formData, setFormData] = useState({
         person: '',
@@ -35,7 +35,12 @@ export default function Signup() {
 
     const submit = () => {
         console.log("Form submitted.");
-        navigate('/');
+        if(formData.password != formData.confirmPassword){
+            setwarn("Passwords do not match");
+        }
+        else{
+            navigate('/signup');
+        }
     }
     return (
         <>
