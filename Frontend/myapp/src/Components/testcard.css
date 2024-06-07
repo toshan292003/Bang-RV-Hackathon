@@ -1,0 +1,68 @@
+.coolcard{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.coolcard div{
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: rgba(0, 157, 255, 0.75);
+    transition: all 1s ease;
+    position: absolute;
+    z-index: 10;
+}
+
+.coolcard div:hover{
+    cursor: pointer;
+}
+
+.coolcard img{
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+}
+
+.coolcard h1{
+    position: relative;
+    text-align: center;
+    top: 10px;
+    z-index: 10;
+    color: white;
+    font-size: 2.5rem;
+    transition: all 0.5s ease;
+    z-index: 20;
+}
+
+.coolcard h1:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1100px) {
+    .coolcard{
+        height: 250px;
+        width: 350px;
+    }
+    .coolcard div{
+        height: 250px;
+        width: 350px;
+    }
+    .coolcard h1{
+        font-size: 2rem;
+    }
+}
