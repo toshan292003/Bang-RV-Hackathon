@@ -49,8 +49,8 @@ export default function Signin() {
             navigate(route);
         } catch (error) {
             console.error('Error submitting form data:', error);
+            setwarn("User doesnt exist");
         }
-
     };
 
     return (
