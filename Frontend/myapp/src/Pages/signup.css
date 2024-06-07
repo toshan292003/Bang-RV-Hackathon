@@ -74,6 +74,8 @@
 
 .signbox section:nth-child(2){
     height: 80%;
+    margin: 50px 0px;
+    overflow: scroll;
 }
 
 .signbox section img{
@@ -96,12 +98,17 @@
     font-weight: 300;
 }
 
-.signbox section form input{
+.signbox section form input,
+.signbox section form textarea{
     padding: 10px 20px;
-    width: 100%;
+    width: 110%;
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.315);
+}
+
+.signbox section form textarea{
+    height: 200px;
 }
 
 .signbox section form button{

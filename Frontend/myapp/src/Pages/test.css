@@ -1,7 +1,41 @@
 .test{
-    width: 80%;
+    margin-top: 200px;
+    width: 85%;
+    margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    margin-top: 200px;
+
+    --testcolor:rgb(20, 54, 133);
+}
+
+.test a{
+    margin-top: 0px;
+    transform: translateY(-100px);
+    text-decoration: none;
+}
+
+.test button{
+    background-color: var(--testcolor);
+    border: 2px solid var(--testcolor);
+    background-color: transparent;
+    color: var(--testcolor);
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 100px;
+    transition: all 0.5s ease;
+    padding: 10px 25px;
+    font-family: "Poppins",sans-serif;
+}
     
+.test button:hover{
+    color: white;
+    background-color: var(--testcolor);
+    cursor: pointer;
+    border: 2px solid transparent;
 }
