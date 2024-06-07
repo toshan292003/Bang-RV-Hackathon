@@ -4,37 +4,23 @@ export default function Navbar(props) {
 
     const [scrollPosition, setScrollPosition] = useState(0);
 
-    const handleScroll = () => {
-        console.log(window.scrollY);
-        console.log('Scrolling...');
-    };
-
-    useEffect(() => {
-        const listener = () => {
-            handleScroll();
-        };
-
-        window.addEventListener('scroll', listener);
-
-        // Cleanup function to remove the event listener
-        return () => {
-            window.removeEventListener('scroll', listener);
-        };
-    }, []);
+    const [homeLink,sethomeLink] = useState("/home/" + props.person.toLowerCase());
+    const [testsLink,settestsLink] = useState("/tests/" + props.person.toLowerCase());
+    
     return (
         <>
             <div className="navbox">
                 <div className="navitems">
                     <span>Educaite</span>
-                    <p>{props.person} Login</p>
+                    <p>{props.person}</p>
                 </div>
                 <div className="navitems">
                     <ul>
                         <li>
-                            <a href={props.homelink}>Home</a>
+                            <a href={homeLink}>Home</a>
                         </li>
                         <li>
-                            <a href="/tests">Tests</a>
+                            <a href={testsLink}>Tests</a>
                         </li>
                         <li>
                             <a href="/input">Inputs</a>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CoolCard from "../Components/CoolCard";
 import Navbar from "./navbar";
 import "./test.css";
-export default function TestTeacher() {
+export default function TestStudent() {
 
     const tests = ["History","Mathematics","Physics","Chemistry","Biology","English"]
     const images=["https://images.pexels.com/photos/820735/pexels-photo-820735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" ,
@@ -14,16 +14,11 @@ export default function TestTeacher() {
     ];
     return (
         <>
-            <Navbar person="Teacher" homelink="/home/teacher"></Navbar>
+            <Navbar person="Student"></Navbar>
             <div className="test">
                 {tests.map((item,index) => (
                     <CoolCard name={item} Image={images[index]}></CoolCard>
                 ))}
-            </div>
-            <div className="test">
-                <a href="/tests/add" className="test">
-                    <button>Create New Test</button>
-                </a>
             </div>
         </>
     )
