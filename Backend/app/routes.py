@@ -146,3 +146,48 @@ def grade_answer_route():
     db.session.commit()
 
     return jsonify({'message': 'Answer graded successfully'})
+
+
+
+@main.route('/create_test_with_questions', methods=['POST'])
+@jwt_required()
+def create_test_with_questions():
+    current_user = get_jwt_identity()
+    user = User.query.get(current_user)
+    if not user.is_lecturer:
+        return jsonify({'message': 'Permission denied'}), 403
+
+    data = request.get_json()
+    
+    
+    test_name = data.get('name')
+    if not test_name:
+        return jsonify({'message': 'Test name is required'}), 400
+
+    
+    new_test = Test(test_name=test_name, lecturer_id=current_user)
+    db.session.add(new_test)
+    db.session.commit()
+    
+    
+    i = 1
+    while True:
+        question_key = f'q{i}'
+        answer_key = f'a{i}'
+        question_text = data.get(question_key)
+        answer_text = data.get(answer_key)
+        if not question_text or not answer_text:
+            break
+        
+        new_question = Question(
+            question_text=question_text,
+            answer_key=answer_text,
+            lecturer_id=current_user,
+            test_id=new_test.id
+        )
+        print(new_question)
+        db.session.add(new_question)
+        i += 1
+    
+    db.session.commit()
+    return jsonify({'message': 'Test and questions created successfully'})
