@@ -39,7 +39,7 @@ export default function HomeS() {
 
     return (
         <>
-            <Navbar person="Student"></Navbar>
+            <Navbar person="Student" homelink="/home/student"></Navbar>
             <div className="home" data-scroll-container ref={scrollRef}>
 
                 <section className="home-1">

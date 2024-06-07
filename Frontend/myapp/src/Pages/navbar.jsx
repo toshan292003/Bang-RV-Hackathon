@@ -31,7 +31,7 @@ export default function Navbar(props) {
                 <div className="navitems">
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <a href={props.homelink}>Home</a>
                         </li>
                         <li>
                             <a href="/tests">Tests</a>

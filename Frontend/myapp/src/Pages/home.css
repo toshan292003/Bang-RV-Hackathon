@@ -126,7 +126,7 @@ body{
 .home-3 img:nth-child(1){
     position: absolute;
     height: auto !important;
-    width: 110vw;
+    width: 130vw;
     z-index: 1;
 }
 
