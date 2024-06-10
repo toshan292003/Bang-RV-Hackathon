@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from .models import User, Question, Answer, TestAttempt, db
+from .models import User, Question, Answer,Test, TestAttempt, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .utils import grade_answer
 
@@ -38,7 +38,7 @@ def login():
     user = User.query.filter_by(username=data['username']).first()
     if user and check_password_hash(user.password, data['password']):
         access_token = create_access_token(identity=user.id)
-        return jsonify({'message': 'Login Successful'})
+        return jsonify({'access_token': access_token})
     return jsonify({'message': 'Invalid credentials'}), 401
 
 @main.route('/add_question', methods=['POST'])
@@ -153,12 +153,8 @@ def grade_answer_route():
 @jwt_required()
 def create_test_with_questions():
     current_user = get_jwt_identity()
-    user = User.query.get(current_user)
-    if not user.is_lecturer:
-        return jsonify({'message': 'Permission denied'}), 403
 
     data = request.get_json()
-    
     
     test_name = data.get('name')
     if not test_name:

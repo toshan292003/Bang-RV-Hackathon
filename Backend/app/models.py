@@ -7,10 +7,17 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
     is_lecturer = db.Column(db.Boolean, default=False)
 
+class Test(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    test_name = db.Column(db.String(100), nullable=False)
+    lecturer_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    questions = db.relationship('Question', backref='test', lazy=True)
+
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_text = db.Column(db.Text, nullable=False)
     answer_key = db.Column(db.Text, nullable=False)
+    test_id = db.Column(db.Integer, db.ForeignKey('test.id'), nullable=False)
     lecturer_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 class Answer(db.Model):
