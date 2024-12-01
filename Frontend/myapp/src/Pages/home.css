@@ -5,6 +5,7 @@
 body{
     --home-color: rgb(0, 67, 143);
     --button-color: rgb(6, 120, 234);
+    font-family: "poppins";
 }
 
 .home-1{
@@ -83,6 +84,7 @@ body{
 }
 
 .home-2box{
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -97,9 +99,17 @@ body{
     justify-content: center;
     color: var(--home-color);
     width: 300px;
-    margin-top: 75px;
+    padding: 0px 30px;
     text-align: center;
-    gap: 30px;
+}
+
+.home-2box div h1{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.home-2box div p{
+    font-size: 0.9rem;
 }
 
 .home-2 div img{

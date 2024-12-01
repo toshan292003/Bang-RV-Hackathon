@@ -1,0 +1,161 @@
+.classdash{
+    position: relative;
+}
+
+.classButton:nth-child(1),
+.classButton:nth-child(2){
+    padding: 10px 20px;
+    position: absolute;
+    top: 75px;
+    z-index: 1000;
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.classButton:nth-child(1):hover,
+.classButton:nth-child(2):hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.2);
+}
+
+
+.classButton:nth-child(1){
+    left: 100px;
+    border: 2px solid var(--button-color);
+}
+.classButton:nth-child(2){
+    background-color: rgb(232, 63, 44);
+    right: 100px;
+    color: white;
+}
+
+.activity-box{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+
+.classdash h2{
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+
+
+.activity-box div{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    overflow: hidden;
+    color: white;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.activity-box div:hover{
+    cursor: pointer;
+}
+.activity-box div img{
+    height: 100px;
+    filter: invert();
+}
+
+.activity-box div p,
+.activity-box div h1{
+    z-index: 100;
+}
+.activity-box div h1{
+    font-size: 2rem;
+    margin-bottom: 0px;
+}
+.activity-box b{
+    background-color: black;
+    opacity: 25%;
+    z-index: 0;
+    width: 50vw;
+    height: 350px;
+    position: absolute;
+}
+.activity-box i{
+    background-color: rgb(0, 136, 255);
+    opacity: 80%;
+    z-index: 0;
+    width: 1500px;
+    height: 1500px;
+    position: absolute;
+    top: 0px;
+    left: 780px;
+    transform: rotate(25deg);
+    transition: all .5s ease;
+}
+
+
+
+
+
+.activity-lastcard{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    overflow: hidden;
+    color: white;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.activity-lastcard:hover{
+    cursor: pointer;
+}
+.activity-lastcard{
+    height: 400px;
+}
+.activity-lastcard img{
+    height: 100px;
+    filter: invert();
+}
+.activity-lastcard p,
+.activity-lastcard h1{
+    z-index: 100;
+}
+.activity-lastcard h1{
+    font-size: 2rem;
+    margin-bottom: 0px;
+}
+.activity-lastcard b{
+    background-color: black;
+    opacity: 25%;
+    z-index: 0;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+}
+.activity-lastcard i{
+    background-color: rgb(0, 136, 255);
+    opacity: 80%;
+    z-index: 0;
+    width: 1500px;
+    height: 1500px;
+    position: absolute;
+    top: -500px;
+    left: 1500px;
+    transform: rotate(25deg);
+    transition: all .5s ease;
+}

@@ -69,14 +69,14 @@ export default function CreateTest() {
                         <input type="text" name="q1" placeholder="Question 1" onChange={handleChange} value={formData.q1} required />
                         <textarea name="ans1" placeholder="Answer key for Question 1" onChange={handleChange} value={formData.ans1} />
 
-                        <input type="text" name="q2" placeholder="Question 2" onChange={handleChange} value={formData.q2} required />
-                        <textarea name="ans2" placeholder="Answer key for Question 2" onChange={handleChange} value={formData.ans2} />
-
+                        {/* <input type="text" name="q2" placeholder="Question 2" onChange={handleChange} value={formData.q2} required />
+                        <textarea name="ans2" placeholder="Answer key for Question 2" onChange={handleChange} value={formData.ans2} /> */}
+{/* 
                         <input type="text" name="q3" placeholder="Question 3" onChange={handleChange} value={formData.q3} required />
                         <textarea name="ans3" placeholder="Answer key for Question 3" onChange={handleChange} value={formData.ans3} />
 
                         <input type="text" name="q4" placeholder="Question 4" onChange={handleChange} value={formData.q4} required />
-                        <textarea name="ans4" placeholder="Answer key for Question 4" onChange={handleChange} value={formData.ans4} />
+                        <textarea name="ans4" placeholder="Answer key for Question 4" onChange={handleChange} value={formData.ans4} /> */}
 
                         <span>{warning}</span>
                         <Link to={route.toString()}>
